@@ -25,6 +25,8 @@ def handle_keydown(screen, e: pygame.event.Event, ship, bullets):
         ship.moving_left = True
     elif e.key == pygame.K_SPACE:
         Bullet.fire_bullet(bullets, screen, ship)
+    if e.key == pygame.K_q:
+        sys.exit(0)
 
 
 def handle_key_up(e, ship):

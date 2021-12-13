@@ -27,4 +27,6 @@ class Ship:
             self.center -= Settings.ship_speed_factor
 
         self.rect.centerx = self.center
+
+    def render(self):
         self.screen.blit(self.image, self.rect)
