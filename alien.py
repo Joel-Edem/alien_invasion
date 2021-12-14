@@ -9,7 +9,6 @@ Position = namedtuple('Position', ['x', 'y'])
 
 
 class Alien(Sprite):
-    going_right = 1
 
     def __init__(self, screen):
         super().__init__()
@@ -34,7 +33,7 @@ class Alien(Sprite):
         self.screen.blit(self.image, self.rect)
 
     def update(self):
-        self.x += (Settings.alien_speed_factor * self.going_right)
+        self.x += (Settings.alien_speed_factor * Settings.fleet_direction)
         self.rect.x = self.x
 
     @staticmethod

@@ -1,11 +1,13 @@
 import pygame.image
+from pygame.sprite import Sprite
 
 from settings import Settings
 
 
-class Ship:
+class Ship(Sprite):
 
     def __init__(self, screen):
+        super().__init__()
         self.screen: pygame.display = screen
 
         # load image
