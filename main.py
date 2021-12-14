@@ -5,6 +5,7 @@ from pygame.sprite import Group
 
 from alien import Alien
 from event_handlers import handle_events
+from images.game_stats import GameStats
 from render import render
 from settings import Settings
 
@@ -27,12 +28,15 @@ class AlienInvasion:
         self.ship = None
         self.bullets = None
         self.aliens = None
+        self.game_stats = None
         logger.debug("game initialized")
 
     def setup(self):
+
         self.ship: Ship = Ship(self.screen)  # create ship
         self.bullets = Group()  # bullet group
         self.aliens = Group()
+        self.game_stats = GameStats()
         Alien.create_fleet(self.screen, self.aliens, self.ship.rect.height)
 
     def run(self):
@@ -42,8 +46,8 @@ class AlienInvasion:
             while True:
                 # handle events
                 handle_events(self.screen, self.ship, self.bullets)
-
-                update_game_state(self.ship, self.bullets, self.aliens)
+                if self.game_stats.game_active:
+                    update_game_state(self.screen, self.ship, self.bullets, self.aliens, self.game_stats)
 
                 render(self.screen, self.ship, self.bullets, self.aliens)
 

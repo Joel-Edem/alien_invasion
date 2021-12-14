@@ -6,7 +6,7 @@ class Settings:
 
     # Ship settings
     ship_speed_factor = 5
-
+    ship_limit = 3
     # Bullet settings
     bullet_speed_factor = 1
     bullet_width = 3
@@ -16,4 +16,4 @@ class Settings:
 
     # Alien Config
     alien_speed_factor = 1
-    fleet_drop_speed = 10
+    fleet_drop_speed = 100
