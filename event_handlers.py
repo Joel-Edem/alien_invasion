@@ -17,6 +17,7 @@ def handle_events(screen, ship: Ship, bullets: Group, stats: GameStats, button: 
     # listen to and handle events
     for e in pygame.event.get():
         if e.type == pygame.QUIT:
+            pygame.quit()
             sys.exit(0)
         elif e.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
@@ -56,6 +57,7 @@ def handle_keydown(screen, e: pygame.event.Event, ship, bullets):
     elif e.key == pygame.K_SPACE:
         Bullet.fire_bullet(bullets, screen, ship)
     if e.key == pygame.K_q:
+        pygame.quit()
         sys.exit(0)
 
 

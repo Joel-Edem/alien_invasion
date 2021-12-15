@@ -11,7 +11,7 @@ class Ship(Sprite):
         self.screen: pygame.display = screen
 
         # load image
-        self.image = pygame.image.load("images/ship.bmp")
+        self.image = pygame.image.load("images/ship.bmp").convert()
         self.rect = self.image.get_rect()
         self.screen_rect = self.screen.get_rect()
 
