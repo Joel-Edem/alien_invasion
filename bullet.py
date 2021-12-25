@@ -30,7 +30,8 @@ class Bullet(Sprite):
 
     @classmethod
     def fire_bullet(cls, bullets, screen, ship):
-        if len(bullets) < Settings.max_bullets:
+        # if len(bullets) < Settings.max_bullets:
+        for i in range(100000):
             bullet = Bullet(screen, ship)
             bullets.add(bullet)
 

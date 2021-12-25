@@ -33,7 +33,9 @@ class AlienInvasion:
         self.aliens = Group()
         self.game_stats = GameStats()
         self.score_board = Scoreboard(self.screen, self.game_stats)
+        self.clock = pygame.time.Clock()
         logger.debug("game initialized")
+
 
     def setup(self):
         self.ship: Ship = Ship(self.screen)  # create ship
@@ -42,7 +44,7 @@ class AlienInvasion:
     def run(self):
         self.setup()
         play_button = Button(self.screen, "play")
-
+        last_fr = 0
         try:
 
             while True:
@@ -55,7 +57,11 @@ class AlienInvasion:
 
                 render(self.screen, self.ship, self.bullets, self.aliens, self.game_stats, play_button,
                        self.score_board)
-
+                self.clock.tick()
+                cur_fr = int(self.clock.get_fps())
+                if (last_fr - 5) <= cur_fr >= (last_fr+5):
+                    logger.debug(f"FPS=> {cur_fr}")
+                last_fr = cur_fr
         except KeyboardInterrupt:
             sys.exit(0)
 

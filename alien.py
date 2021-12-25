@@ -43,7 +43,6 @@ class Alien(Sprite):
 
     @staticmethod
     def get_max_aliens_y(alien_height, ship_height):
-
         available_y = Settings.screen_height - (3 * alien_height) - ship_height
         return int(available_y / (2 * alien_height))
 
